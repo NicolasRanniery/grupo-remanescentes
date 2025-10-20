@@ -1,0 +1,10 @@
+export default function FacaParte() {
+    return (
+        <section className="flex flex-col items-center justify-center text-center h-[80vh]">
+            <h1 className="text-3xl font-bold mb-4 text-gray-900">Faça Parte</h1>
+            <p className="max-w-lg text-gray-600">
+                Junte-se a nós na missão de fazer Deus ser conhecido nas universidades. Seja um remanescente!
+            </p>
+        </section>
+    );
+}

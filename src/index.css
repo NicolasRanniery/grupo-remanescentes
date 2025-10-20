@@ -1,15 +1,15 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* @font-face {
-  font-family: Alegreya;
-  src: url("/src/assets/fonts/Alegreya-Regular.ttf") format("truetype");
+@font-face {
+  font-family: 'LibreBaskerville';
+  src: url("./src/assets/fonts/LibreBaskerville-Regular.ttf") format("truetype");
 }
 
 @theme{
-  --font-sans: 'Alegreya', sans-serif;
+  --font-baskerville: 'LibreBaskerville', sans-serif;
 } 
-*/
+
 
 
 @custom-variant dark (&:is(.dark *));
