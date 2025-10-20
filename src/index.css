@@ -3,7 +3,7 @@
 
 @font-face {
   font-family: 'LibreBaskerville';
-  src: url("./src/assets/fonts/LibreBaskerville-Regular.ttf") format("truetype");
+  src: url("/assets/fonts/LibreBaskerville-Regular.ttf") format("truetype");
 }
 
 @theme{

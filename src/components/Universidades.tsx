@@ -6,7 +6,7 @@ export default function Universidades(props: {
     <>
       <div className="flex flex-col items-center">
         <img
-          src={`src/assets/${props.caminho}.jpg`}
+          src={`/assets/${props.caminho}.jpg`}
           alt={`Remanescentes ${props.nome}`}
           className="w-32 h-32 object-cover rounded-full border-2 border-black"
         />

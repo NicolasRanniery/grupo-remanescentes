@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <nav className="bg-black text-white p-2 flex justify-between items-center">
       <h1 className="text-xl font-bold flex items-center justify-between font-baskerville gap-5 text-[#cdad7d]">
-        <Link to="/" ><img src="./src/assets/uniao-remanescentes.png" alt="Logo Remanescentes" className="h-20 w-20 rounded-full"/></Link>
+        <Link to="/" ><img src="/assets/uniao-remanescentes.png" alt="Logo Remanescentes" className="h-20 w-20 rounded-full"/></Link>
         REMANESCENTES
       </h1>
 
