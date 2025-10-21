@@ -2,15 +2,25 @@
 @import "tw-animate-css";
 
 @font-face {
-  font-family: 'LibreBaskerville';
-  src: url("/assets/fonts/LibreBaskerville-Regular.ttf") format("truetype");
+  font-family: "LibreBaskerville";
+  src: url("/assets/fonts/LibreBaskerville/LibreBaskerville-Regular.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "League Spartan";
+  src: url("/assets/fonts/LeagueSpartan/LeagueSpartan/LeagueSpartan-Regular.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/fonts/Inter/Inter_18pt-Regular.ttf") format("truetype");
 }
 
-@theme{
-  --font-baskerville: 'LibreBaskerville', sans-serif;
-} 
-
-
+@theme {
+  --font-baskerville: "LibreBaskerville", sans-serif;
+  --font-league-spartan: "League Spartan", sans-serif;
+  --font-inter: "Inter", sans-serif;
+}
 
 @custom-variant dark (&:is(.dark *));
 
