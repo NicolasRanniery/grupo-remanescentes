@@ -1,4 +1,4 @@
-import { Phone, Mail, Redo } from "lucide-react";
+import { Phone, Mail} from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Contato() {
