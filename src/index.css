@@ -2,24 +2,43 @@
 @import "tw-animate-css";
 
 @font-face {
+  font-family: "LeagueSpartan";
+  src: url("/assets/fonts/LeagueSpartan-Regular.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "Quicksand";
+  src: url("/assets/fonts/Quicksand-Regular.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "SourceSerif4";
+  src: url("/assets/fonts/SourceSerif4-Regular.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "Telegraf";
+  src: url("/assets/fonts/Telegraf-Regular.otf")
+    format("opentype");
+}
+@font-face {
   font-family: "LibreBaskerville";
-  src: url("/assets/fonts/LibreBaskerville/LibreBaskerville-Regular.ttf")
+  src: url("/assets/fonts/LibreBaskerville-Regular.ttf")
     format("truetype");
 }
 @font-face {
-  font-family: "League Spartan";
-  src: url("/assets/fonts/LeagueSpartan/LeagueSpartan/LeagueSpartan-Regular.ttf")
-    format("truetype");
-}
-@font-face {
-  font-family: "Inter";
-  src: url("/assets/fonts/Inter/Inter_18pt-Regular.ttf") format("truetype");
+  font-family: "texgyretermes";
+  src: url("/assets/fonts/texgyretermes-regular.otf")
+    format("opentype");
 }
 
 @theme {
   --font-baskerville: "LibreBaskerville", sans-serif;
-  --font-league-spartan: "League Spartan", sans-serif;
-  --font-inter: "Inter", sans-serif;
+  --font-league-spartan: "LeagueSpartan", sans-serif;
+  --font-quicksand: "Quicksand", sans-serif;
+  --font-source-serif-4: "SourceSerif4", serif;
+  --font-telegraf: "Telegraf", sans-serif;
+  --font-texgyretermes: "texgyretermes", serif;
 }
 
 @custom-variant dark (&:is(.dark *));
