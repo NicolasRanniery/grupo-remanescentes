@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Contato() {
   return (
-    <section className="relative flex-1 flex flex-col bg-[#f4f1ec]">
+    <section className="relative flex-1 flex flex-col bg-[#e9ded2]">
       <div className="text-left px-4 sm:px-8 pt-10">
         <h1 className="text-4xl md:text-6xl font-bold mb-8 md:mb-4 text-[#303030] font-texgyretermes italic">
           Conheça um pouco mais daquilo <br />

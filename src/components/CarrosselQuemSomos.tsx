@@ -47,15 +47,15 @@ export default function CarrosselQuemSomos() {
       </div>
 
       {/* Botões */}
-      <div className="flex gap-2 mt-2">
+      <div className="relative z-10 flex gap-2 mt-2 px-2 md:px-4">
         <Button
-          className="hover:bg-[#292929] rounded-full text-[#cdad7d] p-2 sm:p-3"
+          className="hover:bg-[#535353] bg-[#292929] rounded-full text-[#cdad7d] p-2 sm:p-3"
           onClick={prev}
-        >
+          >
           <CircleChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
         </Button>
         <Button
-          className="hover:bg-[#292929] rounded-full text-[#cdad7d] p-2 sm:p-3"
+          className="hover:bg-[#535353] bg-[#292929] rounded-full text-[#cdad7d] p-2 sm:p-3"
           onClick={next}
         >
           <CircleChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />

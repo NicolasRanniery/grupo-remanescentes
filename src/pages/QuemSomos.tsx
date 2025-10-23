@@ -2,7 +2,7 @@ import CarrosselQuemSomos from "@/components/CarrosselQuemSomos";
 
 export default function QuemSomos() {
   return (
-    <section className="relative flex-1 bg-[#f4f1ec] py-16">
+    <section className="relative flex-1 bg-[#e9ded2] py-16">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 px-8">
         <CarrosselQuemSomos />
         <div className="lg:w-1/2">
