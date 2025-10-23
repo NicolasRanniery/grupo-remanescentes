@@ -1,14 +1,25 @@
+import CarrosselQuemSomos from "@/components/CarrosselQuemSomos";
+
 export default function QuemSomos() {
   return (
-    <section className="flex flex-1 flex-col items-center justify-center text-center bg-[#e9ded2] h-full">
-      <h1 className="text-3xl font-bold mb-4 text-gray-900 font-league-spartan">
-        Quem Somos
-      </h1>
-      <p className="max-w-lg text-gray-600">
-        Este site foi criado para demonstrar o uso de rotas com React Router e
-        estilização com Tailwind CSS. A ideia é servir como base para projetos
-        maiores.
-      </p>
+    <section className="relative flex-1 bg-[#f4f1ec] py-16">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 px-8">
+        <CarrosselQuemSomos />
+        <div className="lg:w-1/2">
+          <img
+            src="/assets/reuniao_remanescentes.webp" // <-- TROQUE PELA SUA IMAGEM
+            alt="Grupo Remanescentes"
+            className="rounded-lg shadow-lg w-full"
+          />
+          <div className="flex justify-center gap-2 mt-4">
+            <span className="w-3 h-3 bg-gray-400 rounded-full"></span>
+            <span className="w-3 h-3 bg-gray-400 rounded-full"></span>
+            <span className="w-3 h-3 bg-gray-600 rounded-full"></span>
+            <span className="w-3 h-3 bg-gray-400 rounded-full"></span>
+            <span className="w-3 h-3 bg-gray-400 rounded-full"></span>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
