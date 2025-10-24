@@ -4,13 +4,11 @@ import { texts } from "../../public/carrossel";
 import { useState } from "react";
 import { useSwipeable } from "react-swipeable";
 
-
 export default function CarrosselQuemSomos() {
-
   const handlers = useSwipeable({
-  onSwipedLeft: () => setCurr((c) => (c + 1) % texts.length),
-  onSwipedRight: () => setCurr((c) => (c - 1 + texts.length) % texts.length),
-});
+    onSwipedLeft: () => setCurr((c) => (c + 1) % texts.length),
+    onSwipedRight: () => setCurr((c) => (c - 1 + texts.length) % texts.length),
+  });
 
   const [curr, setCurr] = useState(0);
 
@@ -34,7 +32,7 @@ export default function CarrosselQuemSomos() {
                 {item.title}
               </h1>
               <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed mb-4 sm:mb-6 md:mb-8 font-source-serif-4 text-justify">
-                {item.description.split('\n').map((line, idx) => (
+                {item.description.split("\n").map((line, idx) => (
                   <span key={idx}>
                     {line}
                     <br />
@@ -51,7 +49,7 @@ export default function CarrosselQuemSomos() {
         <Button
           className="hover:bg-[#535353] bg-[#292929] rounded-full text-[#cdad7d] p-2 sm:p-3"
           onClick={prev}
-          >
+        >
           <CircleChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
         </Button>
         <Button

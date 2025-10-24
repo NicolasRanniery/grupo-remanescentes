@@ -1,4 +1,4 @@
-import { Phone, Mail} from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Contato() {
@@ -72,7 +72,9 @@ export default function Contato() {
         </div>
       </div>
       <div className="w-full text-center mt-8 md:absolute md:bottom-6 md:left-6 md:text-left md:w-auto md:mt-0">
-        <h2 className="text-3xl md:text-4xl mb-3 font-texgyretermes font-bold italic">Contatos</h2>
+        <h2 className="text-3xl md:text-4xl mb-3 font-texgyretermes font-bold italic">
+          Contatos
+        </h2>
         <div className="flex flex-col gap-3 text-lg font-inter items-center md:items-start">
           <div className="flex items-center gap-3">
             <Phone className="text-[#cdad7d]" />

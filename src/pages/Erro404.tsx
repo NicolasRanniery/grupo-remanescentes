@@ -12,7 +12,8 @@ export default function Erro404() {
       </h1>
 
       <p className="max-w-xl text-base sm:text-lg md:text-xl text-gray-700 mb-8 leading-relaxed font-source-serif-4">
-        Às vezes os caminhos da internet se perdem, mas há um <br />que nunca falha:&nbsp;
+        Às vezes os caminhos da internet se perdem, mas há um <br />
+        que nunca falha:&nbsp;
         <strong>Jesus, o Caminho, a Verdade e a Vida.</strong>
         <br />
         <span className="text-gray-500 text-sm">(João 14:6)</span>

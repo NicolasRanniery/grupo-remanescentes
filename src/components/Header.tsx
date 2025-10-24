@@ -57,7 +57,7 @@ export default function Header() {
             <Menu className="md:hidden cursor-pointer text-[#cdad7d]" />
           </div>
         </div>
-        <MenuResponsivo open={open} onClose={() => setOpen(false)}/>
+        <MenuResponsivo open={open} onClose={() => setOpen(false)} />
       </div>
     </nav>
   );

@@ -144,7 +144,7 @@ export default function Reunioes() {
               alt="Jesus Reunião"
               className="w-40 h-auto mb-6 md:w-56 lg:w-64"
             />
-            
+
             {/* --- TEXTO ALTERADO --- */}
             <h3 className="text-2xl font-bold text-[#303030] font-texgyretermes">
               Aguarde o tempo certo
@@ -158,8 +158,8 @@ export default function Reunioes() {
             </p>
 
             <p className="text-gray-500 italic mt-6 text-sm max-w-lg mx-auto">
-              "Tudo tem o seu tempo determinado, e há tempo para todo o propósito
-              debaixo do céu." (Eclesiastes 3:1)
+              "Tudo tem o seu tempo determinado, e há tempo para todo o
+              propósito debaixo do céu." (Eclesiastes 3:1)
             </p>
             {/* --- FIM DA ALTERAÇÃO --- */}
           </div>
