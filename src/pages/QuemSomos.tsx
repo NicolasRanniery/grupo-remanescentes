@@ -11,13 +11,13 @@ export default function QuemSomos() {
             alt="Grupo Remanescentes"
             className="rounded-lg shadow-lg w-full"
           />
-          <div className="flex justify-center gap-2 mt-4">
+          {/* <div className="flex justify-center gap-2 mt-4">
             <span className="w-3 h-3 bg-gray-400 rounded-full"></span>
             <span className="w-3 h-3 bg-gray-400 rounded-full"></span>
             <span className="w-3 h-3 bg-gray-600 rounded-full"></span>
             <span className="w-3 h-3 bg-gray-400 rounded-full"></span>
             <span className="w-3 h-3 bg-gray-400 rounded-full"></span>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

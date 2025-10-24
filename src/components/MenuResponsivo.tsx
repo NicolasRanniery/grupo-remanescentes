@@ -25,8 +25,8 @@ const MenuResponsivo = ({ open, onClose }: MenuResponsivoProps) => {
                 </Link>
               </li>
               <li onClick={onClose}>
-                <Link to="/faca-parte" className="text-[#cdad7d]">
-                  Faça Parte
+                <Link to="/reunioes" className="text-[#cdad7d]">
+                  Reuniões
                 </Link>
               </li>
               <li onClick={onClose}>

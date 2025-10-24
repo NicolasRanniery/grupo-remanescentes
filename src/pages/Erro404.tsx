@@ -2,8 +2,8 @@ export default function Erro404() {
   return (
     <div className="flex flex-col items-center justify-center flex-1 px-6 py-6 text-center bg-[#e9ded2]">
       <img
-        src="/assets/jesus.svg"
-        alt="Jesus"
+        src="/assets/jesus_erro.svg"
+        alt="Jesus Erro 404"
         className="w-40 h-auto mb-6 md:w-56 lg:w-64"
       />
 
@@ -12,9 +12,7 @@ export default function Erro404() {
       </h1>
 
       <p className="max-w-xl text-base sm:text-lg md:text-xl text-gray-700 mb-8 leading-relaxed font-source-serif-4">
-        Às vezes os caminhos da internet se perdem, mas 
-        <br />
-        há um que nunca falha:&nbsp;
+        Às vezes os caminhos da internet se perdem, mas há um <br />que nunca falha:&nbsp;
         <strong>Jesus, o Caminho, a Verdade e a Vida.</strong>
         <br />
         <span className="text-gray-500 text-sm">(João 14:6)</span>
