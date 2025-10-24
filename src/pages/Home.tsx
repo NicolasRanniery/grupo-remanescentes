@@ -18,9 +18,9 @@ export default function Home() {
         {/* Container dos professores */}
         <div className="flex flex-wrap justify-center gap-10 md:gap-20">
           {/* <Universidades caminho="remanescentes-nome da universidade" nome="nome da universidade" /> */}
-          <Universidades caminho="remanescentes-ufpa" nome="UFPA" />
-          <Universidades caminho="remanescentes-ufra" nome="UFRA" />
-          <Universidades caminho="remanescentes-unifamaz" nome="Unifamaz" />
+          <Universidades caminho="remanescentes-ufpa (1)" nome="UFPA" />
+          <Universidades caminho="remanescentes-ufra (1)" nome="UFRA" />
+          <Universidades caminho="remanescentes-unifamaz (1)" nome="Unifamaz" />
         </div>
       </section>
     </section>
