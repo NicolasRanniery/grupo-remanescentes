@@ -35,10 +35,10 @@ export default function Header() {
               INÍCIO
             </Link>
             <Link
-              to="/faca-parte"
+              to="/reunioes"
               className="hover:text-blue-400 transition-colors text-xs sm:text-sm md:text-base text-[#cdad7d] font-quicksand font-bold"
             >
-              FAÇA PARTE
+              REUNIÕES
             </Link>
             <Link
               to="/quem-somos"

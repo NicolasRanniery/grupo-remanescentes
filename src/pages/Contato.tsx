@@ -24,6 +24,7 @@ export default function Contato() {
               href="https://www.instagram.com/remanescentesufpa?igsh=YXh4YXZoeGtpeHA1"
               target="_blank"
               rel="noopener noreferrer"
+              className="text-white"
             >
               Instagram
             </a>
@@ -45,7 +46,7 @@ export default function Contato() {
               href="https://www.instagram.com/remanescentesunifamaz?igsh=cTd1NTV6dXp0emtk"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#0C0BDB]"
+              className="text-white"
             >
               Instagram
             </a>
@@ -63,6 +64,7 @@ export default function Contato() {
               href="https://www.instagram.com/remanescentesufra?igsh=NTd2cDU0eGs2YTZq"
               target="_blank"
               rel="noopener noreferrer"
+              className="text-white"
             >
               Instagram
             </a>
