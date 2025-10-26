@@ -1,0 +1,78 @@
+import { Link } from "react-router-dom";
+import { Menu } from "lucide-react";
+import { useState } from "react";
+import MenuResponsivo from "./MenuResponsivo";
+
+const colorClasses: Record<string, string> = {
+  UFPA: "#6dd7da",
+  UFRA: "#00bf63",
+  UNIFAMAZ: "#8c52ff",
+};
+
+export default function HeaderUniversidades(props: { nome: string }) {
+  const [open, setOpen] = useState(false);
+
+  const color = colorClasses[props.nome] || "from-gray-600 to-gray-800";
+
+  return (
+    <nav
+      className={"text-white sticky top-0 z-50"}
+      style={{
+        backgroundColor: color,
+        transition: "background-color 0.5s ease-in-out", // animação suave
+      }}
+    >
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4 w-full flex flex-wrap items-center justify-between gap-2 sm:gap-3">
+        <h1 className="text-base sm:text-xl font-bold text-[#cdad7d] font-texgyretermes">
+          <Link
+            to="/"
+            aria-label="Voltar para a página inicial"
+            className="flex items-center gap-3 sm:gap-5"
+          >
+            <img
+              src={`/assets/remanescentes-${props.nome.toLowerCase()}.jpg`}
+              alt="Logo Remanescentes"
+              className="h-12 w-12 sm:h-16 sm:w-16 md:h-20 md:w-20 rounded-full"
+            />
+            <span className="inline text-2xl md:text-3xl">
+              Remanescentes {props.nome}
+            </span>
+          </Link>
+        </h1>
+
+        <div className="flex items-center flex-wrap gap-2 sm:gap-4 md:gap-6">
+          <div className="hidden md:flex items-center gap-2 sm:gap-4 md:gap-6">
+            <Link
+              to="/"
+              className="hover:text-blue-400 transition-colors text-xs sm:text-sm md:text-base text-[#cdad7d] font-quicksand font-bold"
+            >
+              INÍCIO
+            </Link>
+            <Link
+              to="/reunioes"
+              className="hover:text-blue-400 transition-colors text-xs sm:text-sm md:text-base text-[#cdad7d] font-quicksand font-bold"
+            >
+              REUNIÕES
+            </Link>
+            <Link
+              to="/quem-somos"
+              className="hover:text-blue-400 transition-colors text-xs sm:text-sm md:text-base text-[#cdad7d] font-quicksand font-bold"
+            >
+              QUEM SOMOS
+            </Link>
+            <Link
+              to="/contato"
+              className="hover:text-blue-400 transition-colors text-xs sm:text-sm md:text-base text-[#cdad7d] font-quicksand font-bold"
+            >
+              CONTATO
+            </Link>
+          </div>
+          <div onClick={() => setOpen(!open)}>
+            <Menu className="md:hidden cursor-pointer text-[#cdad7d]" />
+          </div>
+        </div>
+        <MenuResponsivo open={open} onClose={() => setOpen(false)} />
+      </div>
+    </nav>
+  );
+}
