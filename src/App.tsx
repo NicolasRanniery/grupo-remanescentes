@@ -1,11 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
 import Home from "./pages/Home";
 import Contato from "./pages/Contato";
 import QuemSomos from "./pages/QuemSomos";
-import Footer from "./components/Footer";
 import Erro404 from "./pages/Erro404";
 import Reunioes from "./pages/Reunioes";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   return (
