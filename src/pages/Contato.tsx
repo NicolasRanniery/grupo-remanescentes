@@ -55,8 +55,8 @@ export default function Contato() {
         <div className="flex flex-col gap-4">
           <h2 className="text-3xl font-texgyretermes italic text-[#303030]">Contatos</h2>
           <div className="flex flex-col gap-3 text-lg font-inter">
-            <div className="flex items-center gap-3">
-              <Phone className="text-[#cdad7d]" />
+            <div className="flex items-center gap-3 font-source-serif-4">
+              <Phone className="text-[#cdad7d] font-s" />
               <span>
                 Santiago:{" "}
                 <a

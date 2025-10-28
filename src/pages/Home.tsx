@@ -33,7 +33,7 @@ export default function Home() {
           transition={{ duration: 1 }}
           className="z-10"
         >
-          <p className="font-texgyretermes text-2xl md:text-3xl text-[#303030]">
+          <p className="font-texgyretermes text-2xl md:text-3xl text-[#303030] -mb-2">
             Seja bem-vindo ao
           </p>
           <h1 className="text-5xl md:text-8xl mb-4 text-[#303030] font-texgyretermes underline decoration-2 underline-offset-8">
