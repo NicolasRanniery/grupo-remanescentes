@@ -41,7 +41,7 @@ export const reunioes: Reuniao[] = [
     universidade: "UFRA",
     local: "Salão ao lado do RU",
     data: "2025-10-30",
-    horario: "18:30",
+    horario: "12:30",
     tipo: "Encontro",
   },
   {
