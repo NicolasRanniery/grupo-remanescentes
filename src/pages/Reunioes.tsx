@@ -1,32 +1,75 @@
-import { useState } from "react";
-// Assumindo que seu arquivo de dados está em ../../public/datas.ts
-import { reunioes } from "../../public/datas";
+import { useEffect, useState } from "react";
+
+interface Reuniao {
+  universidade: string;
+  local: string;
+  data: string;
+  horario: string;
+  tipo: string;
+}
 
 export default function Reunioes() {
   const [filtro, setFiltro] = useState("todas");
+  const [reunioes, setReunioes] = useState<Reuniao[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  // Filtrar
+  const SHEET_ID = "1M2MduYfrOFa3Bkiha4Kt6uGbHZ3nRkExDBj7LmDRxlM";
+  const SHEET_NAME = "Página1";
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${SHEET_NAME}`;
+        const res = await fetch(url);
+        const text = await res.text();
+
+        const json = JSON.parse(text.substr(47).slice(0, -2));
+
+        // Pula a primeira linha (cabeçalho)
+        const rows = json.table.rows
+          .slice(1)
+          .map((r: any) => ({
+            universidade: r.c[0]?.v || "",
+            local: r.c[1]?.v || "",
+            data: r.c[2]?.v || "",
+            horario: r.c[3]?.v || "",
+            tipo: r.c[4]?.v || "",
+          }))
+          // Filtra linhas completamente vazias
+          .filter(
+            (r: Reuniao) =>
+              r.universidade || r.local || r.data || r.horario || r.tipo
+          );
+
+        setReunioes(rows);
+      } catch (err) {
+        console.error("Erro ao carregar dados:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const reunioesFiltradas =
     filtro === "todas"
       ? reunioes
       : reunioes.filter((r) => r.universidade === filtro);
 
-  // --- CORREÇÃO 1: ORDENAÇÃO ROBUSTA ---
   const reunioesOrdenadas = [...reunioesFiltradas].sort((a, b) => {
-    // Usa "00:00" como fallback se o horário não estiver definido
     const horaA = a.horario === "A definir" ? "00:00" : a.horario;
     const horaB = b.horario === "A definir" ? "00:00" : b.horario;
 
     const dateA = new Date(`${a.data}T${horaA}`);
     const dateB = new Date(`${b.data}T${horaB}`);
 
-    // Checagem para datas inválidas (ex: data: "A definir")
     const aValida = !isNaN(dateA.getTime());
     const bValida = !isNaN(dateB.getTime());
 
-    if (aValida && !bValida) return -1; // Datas válidas vêm primeiro
-    if (!aValida && bValida) return 1; // Datas inválidas vão para o fim
-    if (!aValida && !bValida) return 0; // Duas inválidas, ordem indiferente
+    if (aValida && !bValida) return -1;
+    if (!aValida && bValida) return 1;
+    if (!aValida && !bValida) return 0;
 
     return dateA.getTime() - dateB.getTime();
   });
@@ -57,112 +100,113 @@ export default function Reunioes() {
           ))}
         </div>
 
-        {/* --- LISTA DE REUNIÕES COM MENSAGEM DE "VAZIO" --- */}
-        {reunioesOrdenadas.length > 0 ? (
-          // SE TIVER REUNIÕES, MOSTRA O GRID
-          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-            {reunioesOrdenadas.map((r, index) => {
-              // --- CORREÇÃO 2: RENDERIZAÇÃO ROBUSTA ---
+        {/* LOADING */}
+        {loading && (
+          <div className="text-center text-gray-600 italic mb-6">
+            Carregando reuniões...
+          </div>
+        )}
 
-              const temHorarioDefinido = r.horario !== "A definir";
-              const horaParaDate = temHorarioDefinido ? r.horario : "00:00";
-              const dataObj = new Date(`${r.data}T${horaParaDate}`);
-              const dataValida = !isNaN(dataObj.getTime());
+        {/* LISTA DE REUNIÕES */}
+        {!loading && (
+          <>
+            {reunioesOrdenadas.length > 0 ? (
+              <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+                {reunioesOrdenadas.map((r, index) => {
+                  const temHorarioDefinido = r.horario !== "A definir";
+                  const horaParaDate = temHorarioDefinido ? r.horario : "00:00";
+                  const dataObj = new Date(`${r.data}T${horaParaDate}`);
+                  const dataValida = !isNaN(dataObj.getTime());
 
-              // Se a data for inválida (ex: "A definir"), renderiza um card especial
-              if (!dataValida) {
-                return (
-                  <div
-                    key={index}
-                    className="p-4 rounded-xl shadow-md border border-gray-300 bg-gray-100 opacity-80"
-                  >
-                    <div className="flex justify-between items-center mb-2">
-                      <h2 className="font-bold text-lg">{r.universidade}</h2>
-                      <span className="bg-[#303030] text-[#e9ded2] text-xs font-semibold px-2.5 py-0.5 rounded-full capitalize">
-                        {r.tipo}
-                      </span>
+                  if (!dataValida) {
+                    return (
+                      <div
+                        key={index}
+                        className="p-4 rounded-xl shadow-md border border-gray-300 bg-gray-100 opacity-80"
+                      >
+                        <div className="flex justify-between items-center mb-2">
+                          <h2 className="font-bold text-lg">
+                            {r.universidade}
+                          </h2>
+                          <span className="bg-[#303030] text-[#e9ded2] text-xs font-semibold px-2.5 py-0.5 rounded-full capitalize">
+                            {r.tipo}
+                          </span>
+                        </div>
+                        <p>📍 {r.local}</p>
+                        <p className="capitalize">📅 Data: {r.data}</p>
+                        <p>⏰ Horário: {r.horario}</p>
+                        <p className="mt-2 text-sm italic text-gray-600">
+                          ℹ️ Pendente de definição
+                        </p>
+                      </div>
+                    );
+                  }
+
+                  let realizado = false;
+                  if (temHorarioDefinido) {
+                    realizado = dataObj < hoje;
+                  } else {
+                    const fimDoDia = new Date(`${r.data}T23:59:59`);
+                    realizado = fimDoDia < hoje;
+                  }
+
+                  const dataFormatada = dataObj.toLocaleDateString("pt-BR", {
+                    day: "2-digit",
+                    month: "long",
+                    weekday: "long",
+                  });
+
+                  return (
+                    <div
+                      key={index}
+                      className={`p-4 rounded-xl shadow-md border border-gray-300 transition ${
+                        realizado
+                          ? "bg-gray-200 line-through text-gray-500 opacity-70"
+                          : "bg-white hover:shadow-lg"
+                      }`}
+                    >
+                      <div className="flex justify-between items-center mb-2">
+                        <h2 className="font-bold text-lg">{r.universidade}</h2>
+                        <span className="bg-[#303030] text-[#e9ded2] text-xs font-semibold px-2.5 py-0.5 rounded-full capitalize">
+                          {r.tipo}
+                        </span>
+                      </div>
+                      <p>📍 {r.local}</p>
+                      <p className="capitalize">📅 {dataFormatada}</p>
+                      <p>⏰ Horário: {r.horario}</p>
+                      {realizado && (
+                        <p className="mt-2 text-sm italic text-gray-600">
+                          ✅ Evento já realizado
+                        </p>
+                      )}
                     </div>
-                    <p>📍 {r.local}</p>
-                    <p className="capitalize">📅 Data: {r.data}</p>
-                    <p>⏰ Horário: {r.horario}</p>
-                    <p className="mt-2 text-sm italic text-gray-600">
-                      ℹ️ Pendente de definição
-                    </p>
-                  </div>
-                );
-              }
-
-              // Se chegou aqui, a data é válida.
-              let realizado = false;
-              if (temHorarioDefinido) {
-                // Compara com a hora exata
-                realizado = dataObj < hoje;
-              } else {
-                // Sem horário, só marca como realizado se o DIA INTEIRO já passou
-                const fimDoDia = new Date(`${r.data}T23:59:59`);
-                realizado = fimDoDia < hoje;
-              }
-
-              const dataFormatada = dataObj.toLocaleDateString("pt-BR", {
-                day: "2-digit",
-                month: "long",
-                weekday: "long",
-              });
-
-              return (
-                <div
-                  key={index}
-                  className={`p-4 rounded-xl shadow-md border border-gray-300 transition ${
-                    realizado
-                      ? "bg-gray-200 line-through text-gray-500 opacity-70"
-                      : "bg-white hover:shadow-lg"
-                  }`}
-                >
-                  <div className="flex justify-between items-center mb-2">
-                    <h2 className="font-bold text-lg">{r.universidade}</h2>
-                    <span className="bg-[#303030] text-[#e9ded2] text-xs font-semibold px-2.5 py-0.5 rounded-full capitalize">
-                      {r.tipo}
-                    </span>
-                  </div>
-                  <p>📍 {r.local}</p>
-                  <p className="capitalize">📅 {dataFormatada}</p>
-                  <p>⏰ Horário: {r.horario}</p>
-                  {realizado && (
-                    <p className="mt-2 text-sm italic text-gray-600">
-                      ✅ Reunião já realizada
-                    </p>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        ) : (
-          // SE NÃO TIVER REUNIÕES, MOSTRA A MENSAGEM
-          <div className="text-center p-8 bg-white/70 rounded-xl shadow-sm border border-gray-300 flex flex-col items-center justify-center flex-1 px-6 py-6">
-            <img
-              src="/assets/jesus_reuniao.svg"
-              alt="Jesus Reunião"
-              className="w-40 h-auto mb-6 md:w-56 lg:w-64"
-            />
-
-            {/* --- TEXTO ALTERADO --- */}
-            <h3 className="text-2xl font-bold text-[#303030] font-texgyretermes">
-              Aguarde o tempo certo
-            </h3>
-            <p className="text-gray-600 mt-2 max-w-md mx-auto">
-              {filtro === "todas"
-                ? "Ainda não há novas reuniões agendadas."
-                : `No momento, não há reuniões marcadas para ${filtro}.`}
-              <br />
-              Fique em paz, em breve teremos novidades!
-            </p>
-
-            <p className="text-gray-500 italic mt-6 text-sm max-w-lg mx-auto">
-              "Tudo tem o seu tempo determinado, e há tempo para todo o
-              propósito debaixo do céu." (Eclesiastes 3:1)
-            </p>
-            {/* --- FIM DA ALTERAÇÃO --- */}
-          </div>
+                  );
+                })}
+              </div>
+            ) : (
+              <div className="text-center p-8 bg-white/70 rounded-xl shadow-sm border border-gray-300 flex flex-col items-center justify-center flex-1 px-6 py-6">
+                <img
+                  src="/assets/jesus_reuniao.svg"
+                  alt="Jesus Reunião"
+                  className="w-40 h-auto mb-6 md:w-56 lg:w-64"
+                />
+                <h3 className="text-2xl font-bold text-[#303030] font-texgyretermes">
+                  Aguarde o tempo certo
+                </h3>
+                <p className="text-gray-600 mt-2 max-w-md mx-auto">
+                  {filtro === "todas"
+                    ? "Ainda não há novas reuniões agendadas."
+                    : `No momento, não há reuniões marcadas para ${filtro}.`}
+                  <br />
+                  Fique em paz, em breve teremos novidades!
+                </p>
+                <p className="text-gray-500 italic mt-6 text-sm max-w-lg mx-auto">
+                  "Tudo tem o seu tempo determinado, e há tempo para todo o
+                  propósito debaixo do céu." (Eclesiastes 3:1)
+                </p>
+              </div>
+            )}
+          </>
         )}
       </div>
     </section>
