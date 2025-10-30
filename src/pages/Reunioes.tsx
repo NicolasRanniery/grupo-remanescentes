@@ -13,8 +13,8 @@ export default function Reunioes() {
   const [reunioes, setReunioes] = useState<Reuniao[]>([]);
   const [loading, setLoading] = useState(true);
 
-  const SHEET_ID = "1M2MduYfrOFa3Bkiha4Kt6uGbHZ3nRkExDBj7LmDRxlM";
-  const SHEET_NAME = "Página1";
+  const SHEET_ID = import.meta.env.VITE_SHEET_ID;
+  const SHEET_NAME = import.meta.env.VITE_SHEET_NAME;
 
   useEffect(() => {
     const fetchData = async () => {
