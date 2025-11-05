@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-// import PopupImagem from "@/components/PopupImagem";
+import PopupImagem from "@/components/PopupImagem";
 
 export default function Home() {
   const universidades = [
@@ -28,7 +28,7 @@ export default function Home() {
     <main className="flex flex-col min-h-screen bg-[#f3eee7] text-[#303030] font-quicksand">
       {/* HERO SECTION */}
       <section className="relative flex flex-col items-center justify-center text-center h-[80vh] bg-linear-to-b from-[#e9ded2] to-[#d8c5aa] overflow-hidden">
-        {/* <PopupImagem imagem="/assets/remanescentes-ufra.jpg" /> colocar imagem do culto depois*/} 
+        <PopupImagem imagem="/assets/culto_universitario.webp" /> colocar imagem do culto depois 
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
