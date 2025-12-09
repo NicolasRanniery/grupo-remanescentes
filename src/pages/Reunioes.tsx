@@ -79,7 +79,7 @@ export default function Reunioes() {
   return (
     <section className="relative flex-1 flex flex-col bg-[#e9ded2]">
       <div className="text-left px-4 sm:px-8 pt-10 mb-4">
-        <h1 className="text-4xl md:text-6xl font-bold mb-8 md:mb-4 text-[#303030] font-texgyretermes italic">
+        <h1 className="text-4xl md:text-6xl font-bold mb-8 md:mb-8 text-[#303030] font-texgyretermes italic">
           Confira os locais e horários das nossas reuniões:
         </h1>
 

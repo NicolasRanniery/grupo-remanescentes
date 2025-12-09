@@ -1,4 +1,4 @@
-export default function Erro404() {
+export default function NotFound() {
   return (
     <div className="flex flex-col items-center justify-center flex-1 px-6 py-6 text-center bg-[#e9ded2]">
       <img

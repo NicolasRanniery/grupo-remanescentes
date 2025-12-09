@@ -1,4 +1,4 @@
-import { Phone, Mail } from "lucide-react";
+import { Phone, Mail, Youtube } from "lucide-react"; // <--- 1. Importei o ícone do Youtube
 import { Button } from "@/components/ui/button";
 
 export default function Contato() {
@@ -28,7 +28,7 @@ export default function Contato() {
 
   return (
     <section className="flex flex-col items-center justify-center bg-[#e9ded2] px-4 py-10 md:py-20 gap-12">
-      <h1 className="text-4xl md:text-6xl font-texgyretermes italic text-[#303030] text-center">
+      <h1 className="text-4xl md:text-6xl font-texgyretermes italic text-[#303030] text-center font-bold">
         Conheça um pouco mais daquilo que fazemos...
       </h1>
 
@@ -55,8 +55,10 @@ export default function Contato() {
         <div className="flex flex-col gap-4">
           <h2 className="text-3xl font-texgyretermes italic text-[#303030]">Contatos</h2>
           <div className="flex flex-col gap-3 text-lg font-inter">
+            
+            {/* WhatsApp / Telefone */}
             <div className="flex items-center gap-3 font-source-serif-4">
-              <Phone className="text-[#cdad7d] font-s" />
+              <Phone className="text-[#cdad7d]" />
               <span>
                 Santiago:{" "}
                 <a
@@ -74,6 +76,8 @@ export default function Contato() {
                 </a>
               </span>
             </div>
+
+            {/* Email */}
             <div className="flex items-center gap-3">
               <Mail className="text-[#cdad7d]" />
               <a
@@ -83,6 +87,20 @@ export default function Contato() {
                 remanescentesufpa@gmail.com
               </a>
             </div>
+
+            {/* --- 2. NOVO CAMPO: YOUTUBE --- */}
+            <div className="flex items-center gap-3">
+              <Youtube className="text-[#cdad7d]" />
+              <a
+                href="https://youtube.com/@remanescentesufpa?si=LD6LyeisCzodl3Fh" // <--- Coloque o link do canal aqui
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline font-source-serif-4"
+              >
+                Nosso Canal no YouTube
+              </a>
+            </div>
+
           </div>
         </div>
       </div>
