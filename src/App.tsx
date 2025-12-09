@@ -6,6 +6,7 @@ import Erro404 from "./pages/Erro404";
 import Reunioes from "./pages/Reunioes";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Galeria from "./pages/Galeria";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/reunioes" element={<Reunioes />} />
         <Route path="*" element={<Erro404 />} />
         <Route path="/contato" element={<Contato />} />
+        <Route path="/galeria" element={<Galeria />} />
       </Routes>
       <Footer />
     </div>

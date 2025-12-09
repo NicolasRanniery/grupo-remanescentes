@@ -41,6 +41,12 @@ export default function Header() {
               REUNIÕES
             </Link>
             <Link
+              to="/galeria"
+              className="hover:text-blue-400 transition-colors text-xs sm:text-sm md:text-base text-[#cdad7d] font-quicksand font-bold"
+            >
+              GALERIA
+            </Link>
+            <Link
               to="/quem-somos"
               className="hover:text-blue-400 transition-colors text-xs sm:text-sm md:text-base text-[#cdad7d] font-quicksand font-bold"
             >

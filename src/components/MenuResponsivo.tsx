@@ -7,6 +7,19 @@ interface MenuResponsivoProps {
   onClose: () => void;
 }
 
+interface Pages{
+  name: string;
+  path: string;
+}
+
+const pages: Pages[] = [
+  { name: "Início", path: "/" },
+  { name: "Reuniões", path: "/reunioes" },
+  { name: "Galeria", path: "/galeria" },
+  { name: "Quem Somos", path: "/quem-somos" },
+  { name: "Contato", path: "/contato" },
+];
+
 const MenuResponsivo = ({ open, onClose }: MenuResponsivoProps) => {
   return (
     <AnimatePresence>
@@ -19,7 +32,7 @@ const MenuResponsivo = ({ open, onClose }: MenuResponsivoProps) => {
         >
           <div className="text-xl font-semibold font-quicksand uppercase bg-linear-to-r from-[#535353] to-[#292929] py-10 m-6 rounded-3xl">
             <ul className="flex flex-col justify-center items-center gap-10">
-              <li onClick={onClose}>
+              {/* <li onClick={onClose}>
                 <Link to="/" className="text-[#cdad7d]">
                   Início
                 </Link>
@@ -38,7 +51,12 @@ const MenuResponsivo = ({ open, onClose }: MenuResponsivoProps) => {
                 <Link to="/contato" className="text-[#cdad7d]">
                   Contato
                 </Link>
-              </li>
+              </li> */}
+              {pages.map((page) => (
+                <li key={page.name} onClick={onClose}>
+                  <Link to={page.path} className="text-[#cdad7d]">{page.name}</Link>
+                </li>
+              ))}
             </ul>
           </div>
         </motion.div>
