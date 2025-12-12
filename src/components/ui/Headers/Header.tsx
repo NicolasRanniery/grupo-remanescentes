@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Menu } from "lucide-react";
 import { useState } from "react";
-import MenuResponsivo from "./MenuResponsivo";
+import MenuResponsivo from "../../MenuResponsivo";
 
 export default function Header() {
   const [open, setOpen] = useState(false);

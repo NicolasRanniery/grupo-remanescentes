@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <main className="flex flex-col min-h-screen bg-[#f3eee7] text-[#303030] font-quicksand">
       {/* HERO SECTION */}
-      <section className="relative flex flex-col items-center justify-center text-center h-[80vh] bg-linear-to-b from-[#e9ded2] to-[#d8c5aa] overflow-hidden">
+      <section className="relative flex flex-col items-center justify-center text-center h-[70vh] bg-linear-to-b from-[#e9ded2] to-[#d8c5aa] overflow-hidden">
         {/* <PopupImagem imagem="/assets/culto_universitario.webp" video={true} /> */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -56,8 +56,8 @@ export default function Home() {
         </motion.div>
 
         {/* Fundo decorativo com blur */}
-        <div className="absolute w-[400px] h-[400px] bg-[#cdad7d] rounded-full blur-3xl opacity-20 top-20 left-10" />
-        <div className="absolute w-[300px] h-[300px] bg-[#303030] rounded-full blur-3xl opacity-10 bottom-10 right-10" />
+        <div className="absolute w-100 h-100 bg-[#cdad7d] rounded-full blur-3xl opacity-20 top-20 left-10" />
+        <div className="absolute w-7500px] bg-[#303030] rounded-full blur-3xl opacity-10 bottom-10 right-10" />
       </section>
 
       {/* UNIVERSIDADES */}
@@ -74,22 +74,24 @@ export default function Home() {
               // transition={{ duration: 0.3 }}
               className={`relative bg-linear-to-b ${uni.cor} rounded-2xl p-0.5 shadow-lg hover:shadow-2xl transition-all`}
             >
-              <div //depois colocar Link novamente
-                // to={uni.rota}
-                className="bg-[#f4f1ec] rounded-2xl p-6 flex flex-col items-center hover:bg-[#f0ebe4] transition"
-              >
-                <img
-                  src={`/assets/${uni.caminho}.jpg`}
-                  alt={`Remanescentes ${uni.nome}`}
-                  className="w-32 h-32 object-cover rounded-full border-4 border-white shadow-md"
-                />
-                <h3 className="mt-4 font-bold text-2xl text-[#303030]">
-                  Remanescentes {uni.nome}
-                </h3>
-                {/* <p className="text-sm mt-1 italic text-gray-700">
+              {/* <Link to={uni.rota}> */}
+                <div //depois colocar Link novamente
+                  // to={uni.rota}
+                  className="bg-[#f4f1ec] rounded-2xl p-6 flex flex-col items-center hover:bg-[#f0ebe4] transition"
+                >
+                  <img
+                    src={`/assets/${uni.caminho}.jpg`}
+                    alt={`Remanescentes ${uni.nome}`}
+                    className="w-32 h-32 object-cover rounded-full border-4 border-white shadow-md"
+                  />
+                  <h3 className="mt-4 font-bold text-2xl text-[#303030]">
+                    Remanescentes {uni.nome}
+                  </h3>
+                  {/* <p className="text-sm mt-1 italic text-gray-700">
                   Clique para saber mais
-                </p> */}
-              </div>
+                  </p> */}
+                </div>
+              {/* </Link> */}
             </div>
           ))}
         </div>
